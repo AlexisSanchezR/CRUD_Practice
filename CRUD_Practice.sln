@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD_Practice", "Presentation\CRUD_Practice.Presentation\CRUD_Practice.csproj", "{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bussines", "Bussines", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0977C076-10A7-4DC8-9AA3-B286D3005C46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{076CD7CF-5003-42C9-8517-418FDB58FC30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{44CA7E73-84E5-4EB8-B5AC-5469B41A2BF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD_Practice.Bussines", "Bussines\CRUD_Practice.Bussines\CRUD_Practice.Bussines.csproj", "{66A53DCE-5615-8B9D-EF28-4059C8165607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD_Practice.Domain", "Domain\CRUD_Practice.Domain\CRUD_Practice.Domain.csproj", "{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD_Practice.Infrastructure", "Infrastructure\CRUD_Practice.Infrastructure\CRUD_Practice.Infrastructure.csproj", "{12E1F573-655A-6F77-8CAF-787EE6BA432E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A53DCE-5615-8B9D-EF28-4059C8165607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A53DCE-5615-8B9D-EF28-4059C8165607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A53DCE-5615-8B9D-EF28-4059C8165607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A53DCE-5615-8B9D-EF28-4059C8165607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E1F573-655A-6F77-8CAF-787EE6BA432E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E1F573-655A-6F77-8CAF-787EE6BA432E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E1F573-655A-6F77-8CAF-787EE6BA432E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E1F573-655A-6F77-8CAF-787EE6BA432E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{782E8FEF-DCF0-8CAE-D9B6-F322F0A5F589} = {44CA7E73-84E5-4EB8-B5AC-5469B41A2BF1}
+		{66A53DCE-5615-8B9D-EF28-4059C8165607} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8967E1A1-9B9E-9271-E6EC-8E27409D9F3C} = {0977C076-10A7-4DC8-9AA3-B286D3005C46}
+		{12E1F573-655A-6F77-8CAF-787EE6BA432E} = {076CD7CF-5003-42C9-8517-418FDB58FC30}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ECBDCFB-B41B-4797-AF0B-4BE99D2BB485}
+	EndGlobalSection
+EndGlobal
