@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\CRUD_Practice.Domain\CRUD_Practice.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CRUD_Practice.Infrastructure\CRUD_Practice.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

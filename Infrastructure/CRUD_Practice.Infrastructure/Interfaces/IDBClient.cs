@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CRUD_Practice.Infrastructure.Interfaces
 {
-    internal interface IDBClient
+    public interface IDBClient
     {
+        public Task<NpgsqlConnection> GetConnection();
     }
 }

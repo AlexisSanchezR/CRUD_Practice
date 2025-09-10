@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUD_Practice.Domain.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CRUD_Practice.Bussines.Interfaces
 {
-    internal interface IUserService
+    public interface IUserService
     {
+        public async Task CreateUser(UserModel userModel);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRUD_Practice.Infrastructure.Interfaces
 {
-    internal interface IDBRepository
+    public interface IDBRepository
     {
     }
 }
