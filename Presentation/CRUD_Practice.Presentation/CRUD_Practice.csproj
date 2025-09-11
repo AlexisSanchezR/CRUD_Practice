@@ -23,8 +23,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Bussines\CRUD_Practice.Bussines\CRUD_Practice.Bussines.csproj" />
-		<ProjectReference Include="..\..\Bussines\Login.Bussines\Login.Bussines.csproj" />
-		<ProjectReference Include="..\..\Domain\CRUD_Practice.Domain\CRUD_Practice.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

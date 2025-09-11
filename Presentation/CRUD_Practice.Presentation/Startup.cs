@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using CRUD_Practice.IoCContainer;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;

@@ -32,5 +32,21 @@ namespace CRUD_Practice.Bussines.Services
             }
             
         }
+        public async Task<UserModel> GetById(string userId)
+        {
+            var user = await _dBRepository.GetById(userId);
+            try
+            {
+                if(user == null)
+                {
+                    throw new KeyNotFoundException($"User not found. {userId}");
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error("There was an error finding the user by id");
+            }
+            return user;
+        }
     }
 }

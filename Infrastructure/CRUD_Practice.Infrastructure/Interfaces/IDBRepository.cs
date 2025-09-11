@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUD_Practice.Domain.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace CRUD_Practice.Infrastructure.Interfaces
 {
     public interface IDBRepository
     {
+        public Task CreateUser(UserModel userModel);
+        public Task<UserModel> GetById(string userId);
     }
 }

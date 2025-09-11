@@ -9,6 +9,7 @@ namespace CRUD_Practice.Bussines.Interfaces
 {
     public interface IUserService
     {
-        public async Task CreateUser(UserModel userModel);
+        public Task CreateUser(UserModel userModel);
+        public Task<UserModel> GetById(string userId);
     }
 }

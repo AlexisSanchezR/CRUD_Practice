@@ -11,7 +11,8 @@ namespace CRUD_Practice.Controllers
     public class APIControllers : ControllerBase
     {
         private readonly IUserService _userService;
-        public APIControllers(IUserService userService) {
+        public APIControllers(IUserService userService)
+        {
             _userService = userService;
         }
         [HttpPost("create-user")]
@@ -31,14 +32,19 @@ namespace CRUD_Practice.Controllers
 
         [HttpGet]
         [Route("get-user")]
+        public async Task<IActionResult> GetById(string userId)
+        {
+            var user = await _userService.GetById(userId);
+            return Ok(user);
+        }
 
-        [HttpGet]
-        [Route("getAll-user")]
+        //[HttpGet]
+        //[Route("getAll-user")]
+        
+        //[HttpPut]
+        //[Route("update-user")]
 
-        [HttpPut]
-        [Route("update-user")]
-
-        [HttpDelete]
-        [Route("delete-user")]
+        //[HttpDelete]
+        //[Route("delete-user")]
     }
 }
