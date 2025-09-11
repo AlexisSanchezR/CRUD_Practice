@@ -32,15 +32,15 @@ namespace CRUD_Practice.Infrastructure.Repositories
         public async Task<UserModel> GetById(string userId)
         {
             var connection = await _client.GetConnection();
-            string sql = "SELECT \"Id\", \"Username\", \"Userlastname\", \"Email\", \"Phone\" FROM \"CRUD\" WHERE \"Id\" = @Id";
+            string sql = "SELECT \"Id\", \"Username\", \"Userlastname\", \"Email\", \"Phone\" FROM \"CRUD\" WHERE \"Id\" = @id";
             using (var cmd = new NpgsqlCommand(sql, connection))
             {
-                cmd.Parameters.AddWithValue("$Id", userId);
+                cmd.Parameters.AddWithValue("id", userId);
                 using (var reader = await cmd.ExecuteReaderAsync())
                 {
                     if (await reader.ReadAsync()) // Si hay fila
                     {
-                        string id = reader.GetString(0);
+                        string Id = reader.GetString(0);
                         string Username = reader.GetString(1);
                         string Userlastname = reader.GetString(2);
                         string Email = reader.GetString(3);
@@ -49,7 +49,7 @@ namespace CRUD_Practice.Infrastructure.Repositories
                         // Crear y retornar el modelo
                         return new UserModel
                         {
-                            Id = id,
+                            Id = Id,
                             Username = Username,
                             Userlastname = Userlastname,
                             Email = Email,
@@ -64,6 +64,31 @@ namespace CRUD_Practice.Infrastructure.Repositories
                 }
 
             }
+        }
+        public async Task<List<UserModel>> GetAll()
+        {
+            var users = new List<UserModel>();
+            var connection = await _client.GetConnection();
+
+            string sql = "SELECT \"Id\", \"Username\", \"Userlastname\", \"Email\", \"Phone\" FROM \"CRUD\"";
+
+            using (var cmd = new NpgsqlCommand(sql, connection))
+            using (var reader = await cmd.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    users.Add(new UserModel
+                    {
+                        Id = reader.GetString(0),
+                        Username = reader.GetString(1),
+                        Userlastname = reader.GetString(2),
+                        Email = reader.GetString(3),
+                        Phone = reader.GetString(4),
+
+                    });
+                }
+            }
+            return users;
         }
     }
 }

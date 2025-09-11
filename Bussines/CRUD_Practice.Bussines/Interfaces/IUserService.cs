@@ -11,5 +11,6 @@ namespace CRUD_Practice.Bussines.Interfaces
     {
         public Task CreateUser(UserModel userModel);
         public Task<UserModel> GetById(string userId);
+        public Task<List<UserModel>> GetAll();
     }
 }

@@ -38,8 +38,13 @@ namespace CRUD_Practice.Controllers
             return Ok(user);
         }
 
-        //[HttpGet]
-        //[Route("getAll-user")]
+        [HttpGet]
+        [Route("getAll-user")]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userService.GetAll();
+            return Ok(users);
+        }
         
         //[HttpPut]
         //[Route("update-user")]

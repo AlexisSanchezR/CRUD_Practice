@@ -3,19 +3,14 @@ using CRUD_Practice.Domain.models;
 using CRUD_Practice.Infrastructure.Interfaces;
 using Newtonsoft.Json;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRUD_Practice.Bussines.Services
 {
     public class UserService : IUserService
     {
         private readonly IDBRepository _dBRepository;
-        public UserService(IDBRepository dBRepository) {
+        public UserService(IDBRepository dBRepository)
+        {
             _dBRepository = dBRepository;
         }
         public async Task CreateUser(UserModel userModel)
@@ -30,14 +25,14 @@ namespace CRUD_Practice.Bussines.Services
                 Log.Error($"Error: {JsonConvert.SerializeObject(userModel)}");
                 throw;
             }
-            
+
         }
         public async Task<UserModel> GetById(string userId)
         {
             var user = await _dBRepository.GetById(userId);
             try
             {
-                if(user == null)
+                if (user == null)
                 {
                     throw new KeyNotFoundException($"User not found. {userId}");
                 }
@@ -48,5 +43,19 @@ namespace CRUD_Practice.Bussines.Services
             }
             return user;
         }
+        public async Task<List<UserModel>> GetAll()
+        {
+            try
+            {
+                return await _dBRepository.GetAll();
+            }
+            catch (Exception)
+            {
+                Log.Error("An error occurred while fetching all users.");
+                throw;
+            }
+
+        }
+
     }
 }
