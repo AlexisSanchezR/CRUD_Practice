@@ -56,6 +56,28 @@ namespace CRUD_Practice.Bussines.Services
             }
 
         }
+        public async Task<bool> UpdateUser(string userId, UserModel updateUser)
+        {
+            var user = await _dBRepository.GetById(userId);
+            try
+            {
+                if(user == null)
+                {
+                    throw new KeyNotFoundException($"user not found. {userId}");
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error("There was an error finding the user");
+            }
+            user.Username = updateUser.Username;
+            user.Userlastname = updateUser.Userlastname;
+            user.Password = updateUser.Password;
+            user.Email = updateUser.Email;
+            user.Phone = updateUser.Phone;
 
+            await _dBRepository.UpdateUser(user);
+            return true;
+        }
     }
 }

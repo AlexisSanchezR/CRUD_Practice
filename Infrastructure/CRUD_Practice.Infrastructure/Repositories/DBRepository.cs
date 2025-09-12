@@ -90,5 +90,23 @@ namespace CRUD_Practice.Infrastructure.Repositories
             }
             return users;
         }
+        public async Task<bool> UpdateUser (UserModel user)
+        {
+            var connection = await _client.GetConnection();
+
+            var sql = @"UPDATE ""CRUD"" SET ""Username"" = @Username, ""Userlastname"" = @Userlastname, ""Email"" = @Email, ""Password"" = @Password, ""Phone"" = @Phone WHERE ""Id"" = @Id";
+             using ( var cmd = new NpgsqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("Id", user.Id);
+                cmd.Parameters.AddWithValue ("Username", user.Username);
+                cmd.Parameters.AddWithValue("Userlastname", user.Userlastname);
+                cmd.Parameters.AddWithValue("Password", user.Password);
+                cmd.Parameters.AddWithValue("Email", user.Email);
+                cmd.Parameters.AddWithValue("Phone", user.Phone);
+
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                return rowsAffected > 0;
+            }
+        }
     }
 }
