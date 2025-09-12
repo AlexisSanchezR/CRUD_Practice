@@ -61,7 +61,7 @@ namespace CRUD_Practice.Bussines.Services
             var user = await _dBRepository.GetById(userId);
             try
             {
-                if(user == null)
+                if (user == null)
                 {
                     throw new KeyNotFoundException($"user not found. {userId}");
                 }
@@ -78,6 +78,23 @@ namespace CRUD_Practice.Bussines.Services
 
             await _dBRepository.UpdateUser(user);
             return true;
+        }
+        public async Task<bool> DeleteUser(string userId)
+        {
+            var user = await _dBRepository.GetById(userId);
+            try
+            {
+                if (user == null)
+                {
+                    throw new KeyNotFoundException($"user not found. {userId}");
+                }
+                return true;
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error("\"there was an error when trying to delete user\"");
+            }
+            return false;
         }
     }
 }

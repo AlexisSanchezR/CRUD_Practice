@@ -61,7 +61,16 @@ namespace CRUD_Practice.Controllers
             return NoContent(); // Convención REST para Update
         }
 
-        //[HttpDelete]
-        //[Route("delete-user")]
+        [HttpDelete]
+        [Route("delete-user")]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            var deleted=await _userService.DeleteUser(userId);
+            if (!deleted)
+            {
+                return NotFound(new { Message = "User not found." });
+            }
+            return Ok(new { Message = "user deleted successfully" });
+        }
     }
 }

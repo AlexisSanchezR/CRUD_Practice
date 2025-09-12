@@ -108,5 +108,21 @@ namespace CRUD_Practice.Infrastructure.Repositories
                 return rowsAffected > 0;
             }
         }
+        public async Task<bool> DeleteUser (string userId)
+        {
+            var connection = await _client.GetConnection();
+            string sql = @"DELETE FROM ""CRUD"" WHERE ""Id"" = @Id";
+
+            using (var cmd = new NpgsqlCommand(sql, connection)) 
+            {
+                cmd.Parameters.AddWithValue("Id", userId);
+                //ExecuteNonQueryAsync() -> Devuelve en numero entero, la cantidad de filas afectadas
+                                            //si no encuentra ese id, devuelve 0 pero si encuentra el id
+                                            //ejecuta el comando sql y retorna 1.
+                var rowsAffected = await cmd.ExecuteNonQueryAsync();
+                //1=true, 0=false.
+                return rowsAffected > 0;
+            }
+        }
     }
 }

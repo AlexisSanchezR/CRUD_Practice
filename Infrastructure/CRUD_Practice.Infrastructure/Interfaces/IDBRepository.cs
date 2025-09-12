@@ -13,5 +13,6 @@ namespace CRUD_Practice.Infrastructure.Interfaces
         public Task<UserModel> GetById(string userId);
         public Task<List<UserModel>> GetAll();
         public Task<bool> UpdateUser(UserModel user);
+        public Task<bool> DeleteUser(string userId);
     }
 }
