@@ -46,8 +46,20 @@ namespace CRUD_Practice.Controllers
             return Ok(users);
         }
         
-        //[HttpPut]
-        //[Route("update-user")]
+        [HttpPut]
+        [Route("update-user")]
+        public async Task<IActionResult> UpdateUser (string userId, [FromBody] UserModel updateUser)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var updated = await _userService.UpdateUser(userId, updateUser);
+
+            if (!updated)
+                return NotFound(new { Message = "User not found." });
+
+            return NoContent(); // Convención REST para Update
+        }
 
         //[HttpDelete]
         //[Route("delete-user")]
