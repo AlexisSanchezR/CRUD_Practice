@@ -20,7 +20,7 @@ namespace CRUD_Practice.Controllers
         {
             var model = new UserModel();
             //Esa línea genera un identificador único en forma de texto
-            model.Id = Guid.NewGuid().ToString();
+            //model.Id = Guid.NewGuid().ToString();
             model.Username = CRUDRequest.Username;
             model.Userlastname = CRUDRequest.Userlastname;
             model.Password = CRUDRequest.Password;
@@ -32,9 +32,9 @@ namespace CRUD_Practice.Controllers
 
         [HttpGet]
         [Route("get-user")]
-        public async Task<IActionResult> GetById(string userId)
+        public async Task<IActionResult> GetUserById(string userId)
         {
-            var user = await _userService.GetById(userId);
+            var user = await _userService.GetUserById(userId);
             return Ok(user);
         }
 

@@ -1,5 +1,7 @@
 ﻿using Autofac;
+using CRUD_Practice.Infrastructure.Data;
 using CRUD_Practice.IoCContainer;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -26,6 +28,7 @@ namespace CRUD_Practice
             services.AddMvc();
             services.AddHealthChecks();
             services.AddSwaggerGen();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

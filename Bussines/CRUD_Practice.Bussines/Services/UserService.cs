@@ -8,8 +8,8 @@ namespace CRUD_Practice.Bussines.Services
 {
     public class UserService : IUserService
     {
-        private readonly IDBRepository _dBRepository;
-        public UserService(IDBRepository dBRepository)
+        private readonly IDBRepositoryEF _dBRepository;
+        public UserService(IDBRepositoryEF dBRepository)
         {
             _dBRepository = dBRepository;
         }
@@ -27,9 +27,9 @@ namespace CRUD_Practice.Bussines.Services
             }
 
         }
-        public async Task<UserModel> GetById(string userId)
+        public async Task<UserModel> GetUserById(string userId)
         {
-            var user = await _dBRepository.GetById(userId);
+            var user = await _dBRepository.GetUserById(userId);
             try
             {
                 if (user == null)
@@ -58,7 +58,7 @@ namespace CRUD_Practice.Bussines.Services
         }
         public async Task<bool> UpdateUser(string userId, UserModel updateUser)
         {
-            var user = await _dBRepository.GetById(userId);
+            var user = await _dBRepository.GetUserById(userId);
             try
             {
                 if (user == null)
@@ -81,7 +81,7 @@ namespace CRUD_Practice.Bussines.Services
         }
         public async Task<bool> DeleteUser(string userId)
         {
-            var user = await _dBRepository.GetById(userId);
+            var user = await _dBRepository.GetUserById(userId);
             try
             {
                 if (user == null)
